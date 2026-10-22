@@ -1,0 +1,37 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="This Dynamo script automates the process of generating or updating floor and ceiling finishes in Autodesk Revit rooms."/>
+<title>Dynamo/ Room updater</title>
+</head>
+<body>
+<h1>Room finish updater</h1>
+<p>This Dynamo script automates the process of generating or updating floor and ceiling finishes in Autodesk Revit rooms. Instead of manually modeling floor and ceiling elements for every room, the script reads room data (such as boundary shapes and finish specifications), extracts the necessary curves and parameters, and automatically creates the corresponding finish elements within the Revit model.</p>
+
+<img src = "ceiling and floor finish to room.png" width ="80%"><br>
+<a href ="ceiling and floor finish to room.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+ 1. Collecting Room Elements (Left Side)
+Category and Selection: The script starts on the far left by targeting the "Rooms" category to gather all room elements present in the Revit project.<br>
+Data Retrieval: Nodes process the selected rooms to prepare them for boundary and parameter extraction.<br>
+2. Extracting Finish Parameters & Properties
+Reading Specifications: The script queries specific room parameters (such as designated floor finish or ceiling finish types) using parameter getter nodes.
+Level Mapping: It also pulls level data to ensure the newly created finish elements are placed at the correct elevations.<br>
+ 3. Processing Room Boundaries
+Boundary Geometry: The script extracts the spatial boundaries of each room to generate closed loop curves.<br>
+Curve Management: These curves serve as the precise footprints/outlines required to model the individual floor and ceiling finish layers.<br>
+ 4. Creating Floor and Ceiling Elements
+Element Generation: Using creation nodes (such as those for floors and ceilings), the script takes the extracted boundary curves, floor/ceiling types, and level information to physically build the finish elements inside the rooms.<br>
+ 5. Finalizing and Setting Parameters (Right Side)
+Parameter Assignment: The nodes on the right-hand side apply final properties, set parameter values, or link the newly created finishes back to the respective rooms for scheduling and documentation.
+</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

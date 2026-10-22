@@ -12,7 +12,29 @@
 
 <a href ="section for scope box.png"   download><button>Download image</button> </a>
 <a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>
-<p>This script helps to create sections from the scope box</p><br>
+<p>
+1.Gather Scope Boxes (Bottom Branch)<br>
+Categories: Selects the "Scope Boxes" category.
+All Elements of Category: Retrieves all scope box elements present in the Revit model.<br>
+
+2. Extract Bounding Boxes & Elements (Middle Branch)<br>
+Element.BoundingBox: Extracts the spatial boundaries (min and max points) for each retrieved scope box.<br>
+Code Blocks: Extracts the exact minimum and maximum coordinates from the bounding boxes, and passes through the original scope box elements for later naming/assignment.<br>
+
+3. Define Section View Orientation (Top Branch)<br>
+Plane.XZ / Plane.YZ: Sets up reference planes to determine the orientation of the section cuts.<br>
+Plane.Normal & Vector.Reverse: Extracts and flips the normal vector of the plane to ensure the section view faces the correct direction.<br>
+Plane.ByOriginNormal & List Create: Constructs the placement plane for the views.<br>
+Plane.ToCoordinateSystem: Converts the plane into a coordinate system (`cs`) required to position the section views.<br>
+
+4. Create Section Views<br>
+SectionView.ByCoordinateSystemMinPointMaxPoint:** Combines the coordinate system (`cs`), minimum points (`minPoint`), and maximum points (`maxPoint`) from the scope boxes to generate the actual Revit Section Views.<br>
+
+5. Assign Parameters to New Views<br>
+Code Blocks ("Scope Box"): Specifies the parameter name to target (`"Scope Box"`) and references the original scope box elements.<br>
+
+Element.SetParameterByName: Assigns the respective Scope Box parameter to each newly created Section View, linking them together.
+</p><br>
 
 <a href = "index.html"><button>Home</button></a>
 <a href = "Dynamo.html"><button>Dynamo</button></a>

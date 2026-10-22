@@ -1,0 +1,41 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="This Dynamo script automates the process of renumbering Revit elements sequentially based on their spatial progression along a drawn reference path or spline"/>
+<title>Dynamo/ Renumber element using spline</title>
+</head>
+<body>
+<h1>Renumbering Revit elements sequentially based on their spatial progression along a drawn reference path or spline</h1>
+<p>This Dynamo script automates the process of renumbering Revit elements sequentially based on their spatial progression along a drawn reference path or spline. Instead of manually updating tags or identifiers, the script maps elements to a curve, sorts them by their order along that path, generates a matching number sequence, and writes the new values back into a specified parameter (such as "Mark").</p>
+
+<img src = "renumber element using spline.png" width ="80%"><br>
+<a href ="renumber element using spline.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+ 1. Element and Path Selection
+Selecting the Path: The top-left `Select Model Elements By Category` node allows the user to select the reference line or spline representing the path/alignment.<br>
+Selecting Target Elements:** The bottom-left `Select Model Elements` node allows the user to pick the specific elements in the Revit model that need to be renumbered.<br>
+2. Extracting Geometry
+Two separate `Element.Geometry` nodes process the inputs, extracting the raw geometric representation of both the reference curve and the target elements.<br>
+3. Finding Closest Points and Curve Parameters
+The `Geometry.ClosestPointTo` node evaluates the geometry to find the exact location on the reference line closest to each target element.<br>
+The `Curve.ParameterAtPoint` node takes those points and calculates a numerical parameter value representing their position along the curve.<br>
+ 4. Sorting Elements Along the Spline
+ The `List.SortByKey` node uses the calculated curve parameters as sorting keys to organize the selected elements into an ordered list matching their physical sequence along the spline path.<br>
+ 5. Generating a Number Sequence
+ `List.Count` determines the total number of elements in the sorted list.<br>
+ A `Sequence` node—fed by a starting number and a step size from a Code Block—generates a corresponding list of sequential numbers.<br>
+ 6. Writing Values Back to Revit
+The `String from Object` node converts the generated numerical sequence into text strings.<br>
+ A Code Block defines the target parameter name as `"Mark"`.<br>
+ The `Element.SetParameterByName` node takes the sorted elements, the parameter name, and the sequence values, updating the elements in the Revit project accordingly.
+</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

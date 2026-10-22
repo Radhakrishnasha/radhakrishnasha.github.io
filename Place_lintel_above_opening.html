@@ -1,0 +1,35 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="Dynamo script is designed to automate the placement of structural lintels (beams) above openings."/>
+<title>Dynamo/ place lintel above opening</title>
+</head>
+<body>
+<h1>Place lintel above opening</h1>
+<p> Dynamo script is designed to automate the placement of structural lintels (beams) above openings (such as doors, windows, or general openings) in Autodesk Revit. Instead of manually modeling lintels over every door and window, this script extracts the location and geometry of the openings, determines the correct height, and automatically generates the structural framing elements.</p>
+
+<img src = "lintels above openings.png" width ="80%"><br>
+<a href ="lintels above openings.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+1. Input Selection (Left Side)
+Select the Category: The user selects the target category of openings (e.g., Doors or Windows) using the input node highlighted in the pink box on the upper left.<br>
+Select the Structural Framing Beam: The user defines the specific lintel type/family to be used via the node highlighted in the pink box near the bottom left.<br>
+Element Gathering: An `All Elements of Category` node collects all instances of the chosen openings from the Revit model.<br>
+2. Geometry & Location Extraction (Middle-Left)
+The script extracts the bounding boxes, locations, or boundary curves of the openings. It processes these geometries to find the top elevation and width of each opening, ensuring the lintel is placed at the correct height and span.<br>
+3. Curve and Level Processing (Center)
+ Mathematical and vector manipulation nodes calculate the alignment line (curve) for where the structural beam needs to sit. It associates these curves with the appropriate building **Level** and structural offset parameters.<br>
+4. Element Creation (Middle-Right)
+ The processed curves, structural framing types, levels, and reference levels are fed into creation nodes (typically `StructuralFraming.ByCurveAndLevel`) to generate the physical beams in Revit.<br>
+ 5. Output Verification (Far Right)
+ The resulting elements are gathered and displayed in a watch node under the **"created beams"** orange label, confirming that the structural lintels have been successfully placed above the openings.</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

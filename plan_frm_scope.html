@@ -1,0 +1,39 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="How to create a plan from the scope box in Revit using Dynamo"/>
+<title>Dynamo/ Plan from scope box</title>
+</head>
+<body>
+<h1>Plan from scope box in dynamo</h1>
+<p>This Dynamo script automates the creation of Floor Plan views in Autodesk Revit by combining building Levels and Scope Boxes.
+Instead of manually creating, cropping, and renaming views for different building wings or zones across multiple levels, this workflow extracts the necessary elements from the model, pairs them together, generates the views, and renames them uniformly</p>
+
+<img src = "floor plan from scope box.png" width ="80%"><br>
+<a href ="floor plan from scope box.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+1. Collecting Scope Boxes (Top Branch)
+Category Input:The script begins at the top left by feeding the "Scope Boxes" category into a category selection node.<br>
+Gathering Elements:An `All Elements of Category` node queries the Revit project and outputs a list of all active scope boxes.<br>
+Extracting Data: The script extracts specific parameters (such as the scope box "Name" or bounding box data) using `Element.GetParameterValueByName`.<br>
+2. Collecting Levels (Bottom-Left Branch)
+Category Input:In parallel, the bottom-left section targets the "Levels" category.<br>
+Gathering Elements: An `All Elements of Category` node extracts all level elements present in the Revit model.<br>
+3. Combining Levels and Scope Boxes
+Cross-Product Pairing: The script pairs each level with the collected scope boxes using list lacing (typically a cross-product). This ensures Dynamo knows which scope box applies to which level for view generation.<br>
+4. Creating the Floor Plan Views
+View Generation:The paired level and scope box data feed into view creation nodes (such as `ViewPlan` or specialized package nodes).<br>
+Scope Box Association: As each floor plan is generated, the script automatically assigns the corresponding scope box to control the view's crop boundaries and extents.<br>
+5. Naming and Finalizing (Right Side)
+String Concatenation: A Code Block merges text parameters—typically combining the "Level Name" and the "Scope Box Name" (e.g., `Level Name + " - " + Scope Box Name`) to create a standardized naming convention.<br>
+Setting View Names: The final nodes on the far right use `Element.SetParameterByName` to apply these newly formatted names to the generated Revit views ("View Name").</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

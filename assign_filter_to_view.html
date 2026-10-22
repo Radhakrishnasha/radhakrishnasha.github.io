@@ -1,0 +1,37 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit."/>
+<title>Dynamo/ Assign filter to a view</title>
+</head>
+<body>
+<h1>Creating and assigning a filter to a view</h1>
+<p> The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit. Instead of manually setting up filters and visibility rules in view properties, this script extracts element data, builds filter rules based on parameters (such as area values), sets up custom graphic styling (like colors), and applies them directly to a target Revit view.</p>
+
+<img src = "assign filter to a view.png" width ="80%"><br>
+<a href ="assign filter to a view.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+1. Element Data Extraction (Left)
+Model Element Selection: The workflow begins by selecting a specific model element from the Revit project using the `Select Model Element` node.<br>
+Category and Parameter Retrieval:** An `Element.GetCategory` node extracts the element's category, while parameter nodes query specific properties (such as "Area") to be used in the filter logic.<br>
+Unit Conversion:** A `Convert By Units` node handles unit conversions for the targeted parameters (e.g., square feet).<br>
+ 2. Rule Configuration (Center-Left)
+Rule Type Selection: Nodes like `Select Rule Type` and `FilterRule.ByRuleType` establish the conditional criteria (e.g., parameter value thresholds) that the filter will evaluate.<br>
+3. Filter Element Creation (Top-Center)
+Parameter Filter Generation: A code block defines a name for the filter (e.g., `"Test Filter"`), which is fed alongside the extracted categories and rules into the `ParameterFilterElement.ByRules` node to generate the filter inside Revit.<br>
+ 4. Graphic Overrides Setup (Bottom-Center)
+Visual Styling: A `Color Palette` node (set to red) combined with the `OverrideGraphicSettings.ByProperties` node configures how filtered elements will visually display in the view (such as projection/cut colors, lines, and patterns).<br>
+ 5. Applying the Filter to a View (Right)
+View Assignment: A targeted Revit view (e.g., an architectural floor plan) is selected using the `Views` node.<br>
+Final Override Execution: List manipulation nodes bundle the filter and graphic override settings together, and the `View.SetFilterOverrides` node applies the filter and its visual rules to the designated view.
+</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

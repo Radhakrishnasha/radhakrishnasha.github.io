@@ -4,12 +4,91 @@
 <title>radhakrishnasha /Dynamo</title>
 </head>
 <body>
-<h1>examples</h1>
+<h1>My Dynamo Script.</h1>
 <h3><ul>
-<li><a href = "section_frm_scope.html">section from scope box</li></a>
-<p>This script helps to create sections from the scope box</p>
-<li>Revit Families</li>
+
+<li>Checks if legend is placed on any sheets</li>
+<details>
+<summary>This Dynamo script automates the process of checking whether a specific view or legend is placed on any sheets within a Autodesk Revit model....</summary>
+<p>By querying all sheets and comparing their placed views against a user-selected target view, the script identifies and reports which sheets contain that specific legend or view.</p>
+<img src = "check for legend usage in sheet.png" width ="100%">
+<br>
+<p>
+<a href ="check for legend usage in sheet.png"   download><button>Download image</button> </a><br>
+<a href = "legend_use_sheet.html">Detail explaination on check for legend usage in sheet script</a>
+</p>
+</details>
+
+<li>Updates room finish parameter from floor & ceiling element.</li>
+<details>
+<summary>This Dynamo script automates the process of generating or updating floor and ceiling finishes in Autodesk Revit rooms....</summary>
+<p>Instead of manually modeling floor and ceiling elements for every room, the script reads room data (such as boundary shapes and finish specifications), extracts the necessary curves and parameters, and automatically creates the corresponding finish elements within the Revit model.</p>
+<img src = "ceiling and floor finish to room.png" width ="100%">
+<br>
+<p>
+<a href ="ceiling and floor finish to room.png"   download><button>Download image</button> </a><br>
+<a href = "Room para update.html">Detail explaination on check for legend usage in sheet script</a>
+</p>
+</details>
+
+<li>section from scope box</li>
+<details>
+<summary>This Dynamo script automates the creation of Sectional views in Autodesk Revit by using Scope Boxes....</summary>
+<img src = "section for scope box.png" width ="100%">
+<br>
+<p>
+<a href ="section for scope box.png"   download><button>Download image</button> </a><br>
+<a href = "section_frm_scope.html">Detail explaination on section from scope box</a>
+</p>
+</details>
+
+<li>Create floor plan from scope box</li>
+<details>
+<summary>This Dynamo script automates the creation of Floor Plan views in Autodesk Revit by combining building Levels and Scope Boxes....</summary>
+<p>
+Instead of manually creating, cropping, and renaming views for different building wings or zones across multiple levels, this workflow extracts the necessary elements from the model, pairs them together, generates the views, and renames them uniformly.<br>
+<img src = "floor plan from scope box.png" width ="100%">
+<a href ="floor plan from scope box.png"   download><button>Download image</button> </a><br>
+<a href = "plan_frm_scope.html">Detail explaination on creating floor plan from scope box</a>
+</p>
+</details>
+
+<li>Renumber revit element using spline</li>
+<details>
+<summary>This Dynamo script automates the process of renumbering Revit elements sequentially based on their spatial progression along a drawn reference path or spline....</summary>
+<p>
+Instead of manually updating tags or identifiers, the script maps elements to a curve, sorts them by their order along that path, generates a matching number sequence, and writes the new values back into a specified parameter (such as "Mark").<br>
+<img src = "renumber element using spline.png" width ="100%">
+<a href ="renumber element using spline.png"   download><button>Download image</button> </a><br>
+<a href = "renumber_using_spline.html">Detail explaination of this script</a>
+</p>
+</details>
+
+<li>Place lintel above opening</li>
+<details>
+<summary>Dynamo script is designed to automate the placement of structural lintels (beams) above openings (such as doors, windows, or general openings) in Autodesk Revit....</summary>
+<p>
+Instead of manually modeling lintels over every door and window, this script extracts the location and geometry of the openings, determines the correct height, and automatically generates the structural framing elements.<br>
+<img src = "lintels above openings.png" width ="100%">
+<a href ="lintels above openings.png"   download><button>Download image</button> </a><br>
+<a href = "Place_lintel_above_opening.html">Detail explaination of this script</a>
+</p>
+</details>
+
+<li>Assign filter to a view</li>
+<details>
+<summary>The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit....</summary>
+<p>
+Instead of manually setting up filters and visibility rules in view properties, this script extracts element data, builds filter rules based on parameters (such as area values), sets up custom graphic styling (like colors), and applies them directly to a target Revit view.<br>
+<img src = "assign filter to a view.png" width ="100%">
+<a href ="assign filter to a view.png"   download><button>Download image</button> </a><br>
+<a href = "assign_filter_to_view.html">Detail explaination of this script</a>
+</p>
+</details>
+
+
 </ul></h3>
-<h2><a href = "index.html">home</a></h2>
+<a href = "index.html"><button>Home</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
 </body>
 </html>
