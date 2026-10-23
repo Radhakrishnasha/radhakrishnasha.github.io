@@ -1,0 +1,29 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="This Dynamo script automates the process of extracting element data from a Revit model, using a Python script to generate a custom "QR code" image representing that data."/>
+<title>Dynamo/ Creating a QR code</title>
+</head>
+<body>
+<h1>QR code from element data</h1>
+<p>This Dynamo script automates the process of extracting element data (specifically "Furniture" element IDs) from a Revit model, using a Python script to generate a custom "QR code" image representing that data, saving it to a designated folder directory, and finally reading and previewing the generated QR code image directly within Dynamo.
+</p>
+
+<img src = "QR code.jpg" width ="80%"><br>
+<a href ="QR code.jpg" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+1. Element Data Extraction (Bottom Branch) Categories & All Elements of Category: The script starts by selecting the **"Furniture"** category and pulling all furniture instances present in the Revit project.<br>Element.Id: Extracts the unique element IDs for each of the selected furniture items to serve as the data payload for the QR code.<br>
+2. Directory Path Configuration (Top Branch) Directory Path & String from Object: The user specifies a target folder path on their computer (e.g., on the Desktop inside a `dynamo` folder) where the generated QR code image file will be saved. This path is converted into a string format so it can be read by the script.<br>
+3. QR Code Generation (Middle Section) Python Script: This node takes the directory path (`IN[0]`) and the element IDs/data (`IN[1]`) as inputs. It executes custom Python code to encode the data into a QR code graphic and saves it as a `.png` file (such as `1245858.png`) in the specified folder.<br>
+4. Image Loading and Preview (Right Section) File From Path:** Takes the file path of the newly generated QR code image. <br> Image.ReadFromFile: Loads the saved image file into Dynamo as a bitmap object (`System.Drawing.Bitmap`).<br>Watch Image: Displays a visual preview of the generated QR code directly in the Dynamo workspace.
+</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

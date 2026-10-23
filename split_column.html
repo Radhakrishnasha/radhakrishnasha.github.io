@@ -1,0 +1,35 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content="This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels."/>
+<title>Dynamo/ Split column at levels</title>
+</head>
+<body>
+<h1>Split column at levels</h1>
+<p>This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels. It identifies existing columns, generates intersection planes based on building story elevations, intersects the columns with these planes, deletes the original columns, and recreates new segmented structural columns using curves and specified column types.</p>
+
+<img src = "split column.png" width ="80%"><br>
+<a href ="split column.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+1. Selection & Location of Existing Columns (Top Branch) Categories & All Elements of Category: Selects the "Structural Columns" category and retrieves all column instances currently in the Revit model.<br>
+Elements.Delete & Element.GetActualLocation: Retrieves the actual spatial geometry/location of the structural columns and flags the original elements for deletion once the new split columns are generated.<br>
+2. Level Filtering & Elevation Extraction (Bottom-Left Branch) Categories & All Elements of Category (Levels): Pulls all "Levels" from the Revit model.
+Element.GetParameterValueByName & List.FilterByBoolMask: Evaluates the **"Building Story"** parameter to filter and keep only the relevant building story levels.<br>
+Element.GetParameterValueByName (Elevation) & Math.Round: Extracts the elevation values of the filtered levels and rounds them to get precise vertical heights.<br>
+3. Plane Generation & Geometry Intersection (Middle Section) Plane.XY & Plane.Offset: Creates a base horizontal reference plane and offsets it vertically using the rounded level elevation values.<br>
+Geometry.Intersect & List.OfRepeatedItem: Intersects the column geometries with the offset building story planes to find the exact splitting points or curves along the height of each column.<br>
+4. Data Processing via Python (Right-Middle Section) List.NormalizeDepth: Adjusts and organizes list structures to ensure data consistency after the intersection operation.<br>
+Python Script: Processes the intersection outputs and curves to structure them properly for column recreation.<br>
+5. Recreating Split Columns (Far Right) List.FirstItem & Structural Column Types: Gathers the required reference levels and selects a specific structural column type (e.g., "300 x 450mm") from the model.<br>
+StructuralFraming.ColumnByCurve: Takes the processed curves, levels, and column types to generate and place the new, split structural columns back into the Revit model.
+</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

@@ -1,0 +1,39 @@
+<html lang ="en">
+<head>
+<meta charset="utf-8"/>
+<meta name ="description" 
+	content=" Dynamo script automates the process of extracting Electrical Equipment elements from a Revit model, identifying the specific rooms they are located in, retrieving their "Panel Name" parameters, organizing the data by room, and finally exporting the compiled information into a CSV file on the desktop"/>
+<title>Dynamo/ extract elements and organise the data by room in a csv</title>
+</head>
+<body>
+<h1>Extract elements and organise by room in a csv</h1>
+<p>This Dynamo script automates the process of extracting Electrical Equipment elements from a Revit model, identifying the specific rooms they are located in, retrieving their "Panel Name" parameters, organizing the data by room, and finally exporting the compiled information into a CSV file on the desktop.</p>
+
+<img src = "element room location in csv.png" width ="80%"><br>
+<a href ="element room location in csv.png" download><button>Download image</button> </a>
+
+<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+
+<p>
+1. Element Selection & Parameter Extraction (Top Branch)
+Categories & All Elements of Category: The script begins by selecting the "Electrical Equipment" category and pulling all instances of this category present in the Revit model.<br>
+Element.GetParameterValueByName & Code Block: The collected elements are fed into this node along with a Code Block specifying the parameter name `"Panel Name"` to extract the specific panel name value for each element.<br>
+2. Room Location & Identification (Bottom Branch)
+Element.GetLocation: Retrieves the spatial coordinates or geometry of each electrical equipment element.<br>
+Select.GetRoomAtPoint: Uses the element locations to determine which Revit "Room" each piece of equipment is physically placed inside.<br>
+Room.Name & Room.Number: Extracts the name and number attributes from the identified room objects.<br>
+3. String Manipulation & List Processing (Middle Section)
+String.Length & String.Insert: Process and format the room names and numbers into a clean, combined string format.<br>
+List.UniqueItems & List.AllIndicesOf: Filter out duplicate rooms to create a unique list of rooms and find the corresponding indices for elements associated with each room.<br>
+4. Dictionary Grouping (Right-Middle Section)
+Dictionary.ByKeysValues: Maps the unique rooms (keys) to their corresponding element data (values).<br>
+Dictionary.Keys & Dictionary.Values: Separate the structured dictionary back into organized lists of keys and values ready for export formatting.<br>
+5. Final Formatting & CSV Export (Far Right)
+List.AddItemToFront & List.Combine: Structure and flatten the lists so the data rows align correctly for a spreadsheet format (as shown in the preview list showing rooms grouped with associated items).<br>
+File Path & Data.ExportCSV: The "File Path" node defines the destination directory (`.\Untitled 2.csv`), and the "Data.ExportCSV" node writes the final compiled data into a `.csv` file.</p><br>
+
+<a href = "index.html"><button>Home</button></a>
+<a href = "Dynamo.html"><button>Dynamo</button></a>
+<a href = "help.html"><button>Contact/ help</button></a>
+</body>
+</html>

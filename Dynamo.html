@@ -5,7 +5,7 @@
 </head>
 <body>
 <h1>My Dynamo Script.</h1>
-<h3><ul>
+<h3><ol>
 
 <li>Checks if legend is placed on any sheets</li>
 <details>
@@ -18,6 +18,18 @@
 <a href = "legend_use_sheet.html">Detail explaination on check for legend usage in sheet script</a>
 </p>
 </details>
+
+<li>Tagged vs untagged element</li>
+<details>
+<summary>This Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project....</summary>
+<p>
+duplicating a specific working view, and applying custom graphic visibility overrides (such as solid fill colors and transparency) to those elements using a Python script.<br>
+<img src = "tagged versus untagged elements.png" width ="100%">
+<a href ="tagged versus untagged elements.png"   download><button>Download image</button> </a><br>
+<a href = "tagged_versus_untagged_elements.html">Detail explaination of this script</a>
+</p>
+</details>
+
 
 <li>Updates room finish parameter from floor & ceiling element.</li>
 <details>
@@ -75,6 +87,18 @@ Instead of manually modeling lintels over every door and window, this script ext
 </p>
 </details>
 
+<li>Split column at levels</li>
+<details>
+<summary>This Dynamo script automates the process of splitting existing Structural Columns...</summary>
+<p>
+This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels. It identifies existing columns, generates intersection planes based on building story elevations, intersects the columns with these planes, deletes the original columns, and recreates new segmented structural columns using curves and specified column types.<br>
+<img src = "split column.png" width ="100%">
+<a href ="split column.png"   download><button>Download image</button> </a><br>
+<a href = "split_column.html">Detail explaination of this script</a>
+</p>
+</details>
+
+
 <li>Assign filter to a view</li>
 <details>
 <summary>The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit....</summary>
@@ -86,8 +110,29 @@ Instead of manually setting up filters and visibility rules in view properties, 
 </p>
 </details>
 
+<li>Extract elements and organise by room in a csv</li>
+<details>
+<summary>Extract elements and organise the data by room in a csv...</summary>
+<p>
+This Dynamo script automates the process of extracting Electrical Equipment elements from a Revit model, identifying the specific rooms they are located in, retrieving their "Panel Name" parameters, organizing the data by room, and finally exporting the compiled information into a CSV file on the desktop.<br>
+<img src = "element room location in csv.png" width ="100%">
+<a href ="element room location in csv.png"   download><button>Download image</button> </a><br>
+<a href = "element room location in csv.html">Detail explaination of this script</a>
+</p>
+</details>
 
-</ul></h3>
+<li>QR code from element data</li>
+<details>
+<summary>This Dynamo script automates the process of extracting element data from a Revit model, using a Python script to generate a custom "QR code" image..</summary>
+<p>
+This Dynamo script automates the process of extracting element data (specifically "Furniture" element IDs) from a Revit model, using a Python script to generate a custom "QR code" image representing that data, saving it to a designated folder directory, and finally reading and previewing the generated QR code image directly within Dynamo.<br>
+<img src = "QR code.jpg" width ="100%">
+<a href ="QR code.jpg"   download><button>Download image</button> </a><br>
+<a href = "QR code.html">Detail explaination of this script</a>
+</p>
+</details>
+
+</ol></h3>
 <a href = "index.html"><button>Home</button></a>
 <a href = "help.html"><button>Contact/ help</button></a>
 </body>
