@@ -1,38 +1,90 @@
-<html lang ="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name ="description" 
-	content="The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit."/>
-<title>Dynamo/ Assign filter to a view</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit." />
+  <title>Dynamo/ Assign filter to a view</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<h1>Creating and assigning a filter to a view</h1>
-<p> The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit. Instead of manually setting up filters and visibility rules in view properties, this script extracts element data, builds filter rules based on parameters (such as area values), sets up custom graphic styling (like colors), and applies them directly to a target Revit view.</p>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="dynamo.html">Dynamo</a>
+        <a href="families.html">Revit Families</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
 
-<img src = "assign filter to a view.png" width ="80%"><br>
-<a href ="assign filter to a view.png" download><button>Download image</button> </a>
+  <main class="container container--narrow">
+    <header class="page-header">
+      <span class="badge">Dynamo Script Breakdown</span>
+      <h1>Creating and assigning a filter to a view</h1>
+    </header>
 
-<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+    <section class="content-card">
+      <p class="body-copy">
+        The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit. Instead of manually setting up filters and visibility rules in view properties, this script extracts element data, builds filter rules based on parameters (such as area values), sets up custom graphic styling (like colors), and applies them directly to a target Revit view.
+      </p>
 
-<p>
-1. Element Data Extraction (Left)
-Model Element Selection: The workflow begins by selecting a specific model element from the Revit project using the `Select Model Element` node.<br>
-Category and Parameter Retrieval:** An `Element.GetCategory` node extracts the element's category, while parameter nodes query specific properties (such as "Area") to be used in the filter logic.<br>
-Unit Conversion:** A `Convert By Units` node handles unit conversions for the targeted parameters (e.g., square feet).<br>
- 2. Rule Configuration (Center-Left)
-Rule Type Selection: Nodes like `Select Rule Type` and `FilterRule.ByRuleType` establish the conditional criteria (e.g., parameter value thresholds) that the filter will evaluate.<br>
-3. Filter Element Creation (Top-Center)
-Parameter Filter Generation: A code block defines a name for the filter (e.g., `"Test Filter"`), which is fed alongside the extracted categories and rules into the `ParameterFilterElement.ByRules` node to generate the filter inside Revit.<br>
- 4. Graphic Overrides Setup (Bottom-Center)
-Visual Styling: A `Color Palette` node (set to red) combined with the `OverrideGraphicSettings.ByProperties` node configures how filtered elements will visually display in the view (such as projection/cut colors, lines, and patterns).<br>
- 5. Applying the Filter to a View (Right)
-View Assignment: A targeted Revit view (e.g., an architectural floor plan) is selected using the `Views` node.<br>
-Final Override Execution: List manipulation nodes bundle the filter and graphic override settings together, and the `View.SetFilterOverrides` node applies the filter and its visual rules to the designated view.
-</p><br>
+      <img class="showcase-image" src="assign filter to a view.png" alt="Dynamo graph for creating and assigning a filter to a view">
 
-<footer><hr>
-<p align="center"><a href = "Dynamo.html"><button>Dynamo</button></a><br><a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</footer>
+      <div class="actions">
+        <a class="btn btn-primary" href="assign filter to a view.png" download>Download image</a>
+        <a class="btn" href="dynamo.html">Back to Dynamo</a>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <strong>1. Element Data Extraction (Left)</strong><br>
+          Model Element Selection: The workflow begins by selecting a specific model element from the Revit project using the <code>Select Model Element</code> node.<br>
+          Category and Parameter Retrieval: An <code>Element.GetCategory</code> node extracts the element's category, while parameter nodes query specific properties (such as "Area") to be used in the filter logic.<br>
+          Unit Conversion: A <code>Convert By Units</code> node handles unit conversions for the targeted parameters (e.g., square feet).
+        </div>
+
+        <div class="step-item">
+          <strong>2. Rule Configuration (Center-Left)</strong><br>
+          Rule Type Selection: Nodes like <code>Select Rule Type</code> and <code>FilterRule.ByRuleType</code> establish the conditional criteria (e.g., parameter value thresholds) that the filter will evaluate.
+        </div>
+
+        <div class="step-item">
+          <strong>3. Filter Element Creation (Top-Center)</strong><br>
+          Parameter Filter Generation: A code block defines a name for the filter (e.g., <code>"Test Filter"</code>), which is fed alongside the extracted categories and rules into the <code>ParameterFilterElement.ByRules</code> node to generate the filter inside Revit.
+        </div>
+
+        <div class="step-item">
+          <strong>4. Graphic Overrides Setup (Bottom-Center)</strong><br>
+          Visual Styling: A <code>Color Palette</code> node (set to red) combined with the <code>OverrideGraphicSettings.ByProperties</code> node configures how filtered elements will visually display in the view (such as projection/cut colors, lines, and patterns).
+        </div>
+
+        <div class="step-item">
+          <strong>5. Applying the Filter to a View (Right)</strong><br>
+          View Assignment: A targeted Revit view (e.g., an architectural floor plan) is selected using the <code>Views</code> node.<br>
+          Final Override Execution: List manipulation nodes bundle the filter and graphic override settings together, and the <code>View.SetFilterOverrides</code> node applies the filter and its visual rules to the designated view.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="dynamo.html">Dynamo</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>

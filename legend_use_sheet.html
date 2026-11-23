@@ -1,43 +1,98 @@
-<html lang ="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name="referrer" content="strict-origin-when-cross-origin" />
-<meta name ="description" 
-	content="This Dynamo script automates the process of checking whether a specific view or legend is placed on any sheets within a Autodesk Revit model."/>
-<title>Dynamo/ check for legend usage in sheet</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <meta name="description" content="This Dynamo script automates the process of checking whether a specific view or legend is placed on any sheets within a Autodesk Revit model." />
+  <title>Dynamo/ check for legend usage in sheet</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<h1>Check for legend usage in sheet</h1>
-<p>This Dynamo script automates the process of checking whether a specific view or legend is placed on any sheets within a Autodesk Revit model.By querying all sheets and comparing their placed views against a user-selected target view, the script identifies and reports which sheets contain that specific legend or view.</p>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="dynamo.html">Dynamo</a>
+        <a href="families.html">Revit Families</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
 
-<img src = "check for legend usage in sheet.png" width ="80%"><br>
-<a href ="check for legend usage in sheet.png" download><button>Download image</button> </a>
+  <main class="container container--narrow">
+    <header class="page-header">
+      <span class="badge">Dynamo Script Breakdown</span>
+      <h1>Check for legend usage in sheet</h1>
+    </header>
 
-<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+    <section class="content-card">
+      <p class="body-copy">
+        This Dynamo script automates the process of checking whether a specific view or legend is placed on any sheets within a Autodesk Revit model.By querying all sheets and comparing their placed views against a user-selected target view, the script identifies and reports which sheets contain that specific legend or view.
+      </p>
 
-<p>
- 1. Gathering Inputs (Left Side).
-Collecting All Sheets: The top-left branch uses a `Categories` node set to "Sheets" coupled with `All Elements of Category` to retrieve every sheet present in the Revit project.<br>
-Selecting the Target View/Legend: The bottom-left selection node allows the user to select the specific view or legend they want to check. A `Viewport.View` node extracts the underlying view data from this selection.<br>
-2. Extracting Sheet Contents.
-The `Sheet.Views` node analyzes the collected sheets and extracts a list of all views (floor plans, details, legends, etc.) placed on each individual sheet.
-`String from Object` nodes convert element data into text strings to prepare them for comparison and filtering.<br>
-3. Comparing and Filtering Data.
-Boolean Evaluation: Nodes like `List.AnyTrue`, `List.FilterByBoolMask`, and conditional checks compare the target view against the views found on each sheet.
-This filters the list to isolate only the sheets that contain the specified legend or view.<br>
-4. Logic Processing and Python Scripting.
-A Python Script node handles complex list management, checking whether the resulting filtered list contains items or is empty (`List.IsEmpty`).
-Code blocks extract parameters such as sheet numbers and view names (`Element.GetParameterValueByName`) to structure the data properly.<br>
-5. Formatting and Reporting (Right Side)
-`String.Join` and `List.Flatten` nodes combine the matching sheet data into a clean, readable format.<br>
-The final conditional nodes (`If`) and notification/watch nodes evaluate the final count and display a summary or message indicating whether (and where) the legend is being used on sheets.
-</p><br>
-<iframe width="80%"  src="https://www.youtube-nocookie.com/embed/MZGTUaFsCI0?si=2F3EDc-UlQtOneiP"  referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<br><br>
+      <img class="showcase-image" src="check for legend usage in sheet.png" alt="Dynamo graph for checking legend usage in sheets">
 
-<footer><hr>
-<p align="center"><a href = "Dynamo.html"><button>Dynamo</button></a><br><a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</footer>
+      <div class="actions">
+        <a class="btn btn-primary" href="check for legend usage in sheet.png" download>Download image</a>
+        <a class="btn" href="dynamo.html">Back to Dynamo</a>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <strong>1. Gathering Inputs (Left Side).</strong><br>
+          Collecting All Sheets: The top-left branch uses a <code>Categories</code> node set to "Sheets" coupled with <code>All Elements of Category</code> to retrieve every sheet present in the Revit project.<br>
+          Selecting the Target View/Legend: The bottom-left selection node allows the user to select the specific view or legend they want to check. A <code>Viewport.View</code> node extracts the underlying view data from this selection.
+        </div>
+
+        <div class="step-item">
+          <strong>2. Extracting Sheet Contents.</strong><br>
+          The <code>Sheet.Views</code> node analyzes the collected sheets and extracts a list of all views (floor plans, details, legends, etc.) placed on each individual sheet.
+          <code>String from Object</code> nodes convert element data into text strings to prepare them for comparison and filtering.
+        </div>
+
+        <div class="step-item">
+          <strong>3. Comparing and Filtering Data.</strong><br>
+          Boolean Evaluation: Nodes like <code>List.AnyTrue</code>, <code>List.FilterByBoolMask</code>, and conditional checks compare the target view against the views found on each sheet.
+          This filters the list to isolate only the sheets that contain the specified legend or view.
+        </div>
+
+        <div class="step-item">
+          <strong>4. Logic Processing and Python Scripting.</strong><br>
+          A Python Script node handles complex list management, checking whether the resulting filtered list contains items or is empty (<code>List.IsEmpty</code>).
+          Code blocks extract parameters such as sheet numbers and view names (<code>Element.GetParameterValueByName</code>) to structure the data properly.
+        </div>
+
+        <div class="step-item">
+          <strong>5. Formatting and Reporting (Right Side)</strong><br>
+          <code>String.Join</code> and <code>List.Flatten</code> nodes combine the matching sheet data into a clean, readable format.
+          The final conditional nodes (<code>If</code>) and notification/watch nodes evaluate the final count and display a summary or message indicating whether (and where) the legend is being used on sheets.
+        </div>
+      </div>
+
+      <div class="media-block">
+        <h3>Walkthrough Video</h3>
+        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/MZGTUaFsCI0?si=2F3EDc-UlQtOneiP" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="dynamo.html">Dynamo</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>

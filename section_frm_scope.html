@@ -1,44 +1,91 @@
-<html lang ="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name ="description" 
-	content="How to create a sections from the scope box in Revit using Dynamo"/>
-<title>Dynamo/ Section from scope box</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="How to create a sections from the scope box in Revit using Dynamo" />
+  <title>Dynamo/ Section from scope box</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<h1>Section from scope box in dynamo</h1>
-<img src = "section for scope box.png" width ="80%"><img src = "section for scope box.png" width ="20%">
-<br>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="dynamo.html">Dynamo</a>
+        <a href="families.html">Revit Families</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
 
-<a href ="section for scope box.png"   download><button>Download image</button> </a>
-<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>
-<p>
-1.Gather Scope Boxes (Bottom Branch)<br>
-Categories: Selects the "Scope Boxes" category.
-All Elements of Category: Retrieves all scope box elements present in the Revit model.<br>
+  <main class="container container--narrow">
+    <header class="page-header">
+      <span class="badge">Dynamo Script Breakdown</span>
+      <h1>Section from scope box in dynamo</h1>
+    </header>
 
-2. Extract Bounding Boxes & Elements (Middle Branch)<br>
-Element.BoundingBox: Extracts the spatial boundaries (min and max points) for each retrieved scope box.<br>
-Code Blocks: Extracts the exact minimum and maximum coordinates from the bounding boxes, and passes through the original scope box elements for later naming/assignment.<br>
+    <section class="content-card">
+      <img class="showcase-image" src="section for scope box.png" alt="Dynamo graph for creating section from scope box">
+      <img class="showcase-image" src="section for scope box.png" alt="Secondary preview of Dynamo graph for creating section from scope box">
 
-3. Define Section View Orientation (Top Branch)<br>
-Plane.XZ / Plane.YZ: Sets up reference planes to determine the orientation of the section cuts.<br>
-Plane.Normal & Vector.Reverse: Extracts and flips the normal vector of the plane to ensure the section view faces the correct direction.<br>
-Plane.ByOriginNormal & List Create: Constructs the placement plane for the views.<br>
-Plane.ToCoordinateSystem: Converts the plane into a coordinate system (`cs`) required to position the section views.<br>
+      <div class="actions">
+        <a class="btn btn-primary" href="section for scope box.png" download>Download image</a>
+        <a class="btn" href="section form scope box.dyn" target="_blank" download>Download Dynamo script</a>
+        <a class="btn" href="Dynamo.html">Dynamo</a>
+      </div>
 
-4. Create Section Views<br>
-SectionView.ByCoordinateSystemMinPointMaxPoint:** Combines the coordinate system (`cs`), minimum points (`minPoint`), and maximum points (`maxPoint`) from the scope boxes to generate the actual Revit Section Views.<br>
+      <div class="step-list">
+        <div class="step-item">
+          <strong>1.Gather Scope Boxes (Bottom Branch)</strong><br>
+          Categories: Selects the "Scope Boxes" category.
+          All Elements of Category: Retrieves all scope box elements present in the Revit model.
+        </div>
 
-5. Assign Parameters to New Views<br>
-Code Blocks ("Scope Box"): Specifies the parameter name to target (`"Scope Box"`) and references the original scope box elements.<br>
+        <div class="step-item">
+          <strong>2. Extract Bounding Boxes &amp; Elements (Middle Branch)</strong><br>
+          Element.BoundingBox: Extracts the spatial boundaries (min and max points) for each retrieved scope box.<br>
+          Code Blocks: Extracts the exact minimum and maximum coordinates from the bounding boxes, and passes through the original scope box elements for later naming/assignment.
+        </div>
 
-Element.SetParameterByName: Assigns the respective Scope Box parameter to each newly created Section View, linking them together.
-</p><br>
+        <div class="step-item">
+          <strong>3. Define Section View Orientation (Top Branch)</strong><br>
+          Plane.XZ / Plane.YZ: Sets up reference planes to determine the orientation of the section cuts.<br>
+          Plane.Normal &amp; Vector.Reverse: Extracts and flips the normal vector of the plane to ensure the section view faces the correct direction.<br>
+          Plane.ByOriginNormal &amp; List Create: Constructs the placement plane for the views.<br>
+          Plane.ToCoordinateSystem: Converts the plane into a coordinate system (<code>cs</code>) required to position the section views.
+        </div>
 
-<footer><hr>
-<p align="center"><a href = "Dynamo.html"><button>Dynamo</button></a><br><a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</footer>
+        <div class="step-item">
+          <strong>4. Create Section Views</strong><br>
+          SectionView.ByCoordinateSystemMinPointMaxPoint:** Combines the coordinate system (<code>cs</code>), minimum points (<code>minPoint</code>), and maximum points (<code>maxPoint</code>) from the scope boxes to generate the actual Revit Section Views.
+        </div>
+
+        <div class="step-item">
+          <strong>5. Assign Parameters to New Views</strong><br>
+          Code Blocks ("Scope Box"): Specifies the parameter name to target (<code>"Scope Box"</code>) and references the original scope box elements.<br>
+          Element.SetParameterByName: Assigns the respective Scope Box parameter to each newly created Section View, linking them together.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="Dynamo.html">Dynamo</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>

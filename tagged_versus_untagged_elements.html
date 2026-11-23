@@ -1,34 +1,85 @@
-<html lang ="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name ="description" 
-	content="Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project."/>
-<title>Dynamo/ Split column at levels</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project." />
+  <title>Dynamo/ Split column at levels</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<h1>Tagged versus untagged elements element override</h1>
-<p>This Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project, duplicating a specific working view, and applying custom graphic visibility overrides (such as solid fill colors and transparency) to those elements using a Python script.</p>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="dynamo.html">Dynamo</a>
+        <a href="families.html">Revit Families</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
 
-<img src = "tagged versus untagged elements.png" width ="80%"><br>
-<a href ="tagged versus untagged elements.png" download><button>Download image</button> </a>
+  <main class="container container--narrow">
+    <header class="page-header">
+      <span class="badge">Dynamo Script Breakdown</span>
+      <h1>Tagged versus untagged elements element override</h1>
+    </header>
 
-<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+    <section class="content-card">
+      <p class="body-copy">
+        This Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project, duplicating a specific working view, and applying custom graphic visibility overrides (such as solid fill colors and transparency) to those elements using a Python script.
+      </p>
 
-<p>
-1. Element and Tag Filtering (Top Branch) Pick tag & Pick element:** The workflow begins by allowing the user to select specific tags and elements from the Revit model.<br>
-List.Create & Element.GetCategory: These selected inputs are bundled together to extract their respective categories.<br>
-All Elements of Category & List Processing:** The script retrieves all elements belonging to those categories, flattens the lists, and passes them through nodes like `Tag.TaggedElement` to isolate and evaluate untagged elements via a dedicated Python script block.<br>
-2. View Selection and Duplication (Middle Section) Select viewport: Allows the user to select a specific viewport from the project sheets.<br>
-Viewport.View: Extracts the actual Revit view associated with the chosen viewport.<br>
-View.DuplicateView & Code Blocks: Uses code blocks defining parameters like `"WithDetailing"` and `"_QC"` to duplicate the view for graphic presentation or quality control purposes.<br>
-3. Color and Graphic Pattern Configuration (Bottom Section) Fill Colour & List Create:** Multiple color options (such as green, red, and blue) are defined and managed through a custom selection dropdown and list indexing nodes.<br>
-Color.Components: Deconstructs the selected color into its individual RGBA (Red, Green, Blue, Alpha) numerical components.<br>
-Transparency Slider & Fill Patterns: A slider sets a transparency value (e.g., `50`), and a `Fill Patterns` node selects a `<Solid fill>` pattern for the graphic overrides.<br>
-4. Execution via Python (Far Right) Python Script: The final node aggregates all compiled data—including the target elements, duplicated view, color components, transparency level, and fill patterns—to execute the visual override command inside the Revit environment.
-</p><br>
-<footer><hr>
-<p align="center"><a href = "Dynamo.html"><button>Dynamo</button></a><br><a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</footer>
+      <img class="showcase-image" src="tagged versus untagged elements.png" alt="Dynamo graph for identifying tagged versus untagged elements">
+
+      <div class="actions">
+        <a class="btn btn-primary" href="tagged versus untagged elements.png" download>Download image</a>
+        <!--<a class="btn" href="section form scope box.dyn" target="_blank" download>Download Dynamo script</a>-->
+        <a class="btn" href="Dynamo.html">Dynamo</a>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <strong>1. Element and Tag Filtering (Top Branch)</strong> Pick tag &amp; Pick element:** The workflow begins by allowing the user to select specific tags and elements from the Revit model.<br>
+          List.Create &amp; Element.GetCategory: These selected inputs are bundled together to extract their respective categories.<br>
+          All Elements of Category &amp; List Processing:** The script retrieves all elements belonging to those categories, flattens the lists, and passes them through nodes like <code>Tag.TaggedElement</code> to isolate and evaluate untagged elements via a dedicated Python script block.
+        </div>
+
+        <div class="step-item">
+          <strong>2. View Selection and Duplication (Middle Section)</strong> Select viewport: Allows the user to select a specific viewport from the project sheets.<br>
+          Viewport.View: Extracts the actual Revit view associated with the chosen viewport.<br>
+          View.DuplicateView &amp; Code Blocks: Uses code blocks defining parameters like <code>"WithDetailing"</code> and <code>"_QC"</code> to duplicate the view for graphic presentation or quality control purposes.
+        </div>
+
+        <div class="step-item">
+          <strong>3. Color and Graphic Pattern Configuration (Bottom Section)</strong> Fill Colour &amp; List Create:** Multiple color options (such as green, red, and blue) are defined and managed through a custom selection dropdown and list indexing nodes.<br>
+          Color.Components: Deconstructs the selected color into its individual RGBA (Red, Green, Blue, Alpha) numerical components.<br>
+          Transparency Slider &amp; Fill Patterns: A slider sets a transparency value (e.g., <code>50</code>), and a <code>Fill Patterns</code> node selects a <code>&lt;Solid fill&gt;</code> pattern for the graphic overrides.
+        </div>
+
+        <div class="step-item">
+          <strong>4. Execution via Python (Far Right)</strong> Python Script: The final node aggregates all compiled data—including the target elements, duplicated view, color components, transparency level, and fill patterns—to execute the visual override command inside the Revit environment.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="Dynamo.html">Dynamo</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>

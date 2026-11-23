@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>radhakrishnasha / Dynamo</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
+</head>
+<body>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="families.html">Revit Families</a>
+        <a href="Cetrificates.html">Certificates</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <div class="container container--narrow">
+    <header class="page-header">
+      <div class="header-meta">
+        <span class="badge">Autodesk Revit &bull; radhakrishnasha</span>
+      </div>
+      <h1>Dynamo Automation</h1>
+      <p class="subtitle">Visual programming to reduce repetitive work and improve model consistency</p>
+    </header>
+
+    <main>
+      <ol class="script-list">
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Checks if legend is placed on any sheets</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the process of checking whether a specific view or legend is placed on any sheets within a Autodesk Revit model....</p>
+            </summary>
+            <div class="details-body">
+              <p>By querying all sheets and comparing their placed views against a user-selected target view, the script identifies and reports which sheets contain that specific legend or view.</p>
+              <img class="script-image" src="check for legend usage in sheet.png" alt="Dynamo graph for checking legend usage in sheets">
+              <div class="actions">
+                <a class="btn btn-primary" href="check for legend usage in sheet.png" download>Download image</a>
+                <a class="detail-link" href="legend_use_sheet.html">Detailed explanation on check for legend usage in sheet script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Tagged vs untagged element</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project....</p>
+            </summary>
+            <div class="details-body">
+              <p>This Dynamo script automates the process of identifying tagged versus untagged elements in a Revit project, duplicating a specific working view, and applying custom graphic visibility overrides (such as solid fill colors and transparency) to those elements using a Python script.</p>
+              <img class="script-image" src="tagged versus untagged elements.png" alt="Dynamo graph for identifying tagged versus untagged elements">
+              <div class="actions">
+                <a class="btn btn-primary" href="tagged versus untagged elements.png" download>Download image</a>
+                <a class="detail-link" href="tagged_versus_untagged_elements.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Updates room finish parameter from floor &amp; ceiling element.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the process of generating or updating floor and ceiling finishes in Autodesk Revit rooms....</p>
+            </summary>
+            <div class="details-body">
+              <p>Instead of manually modeling floor and ceiling elements for every room, the script reads room data (such as boundary shapes and finish specifications), extracts the necessary curves and parameters, and automatically creates the corresponding finish elements within the Revit model.</p>
+              <img class="script-image" src="ceiling and floor finish to room.png" alt="Dynamo graph for ceiling and floor finish to room">
+              <div class="actions">
+                <a class="btn btn-primary" href="ceiling and floor finish to room.png" download>Download image</a>
+                <a class="detail-link" href="Room para update.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Section from scope box.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the creation of Sectional views in Autodesk Revit by using Scope Boxes....</p>
+            </summary>
+            <div class="details-body">
+              <p>This Dynamo script automates the creation of Sectional views in Autodesk Revit by using Scope Boxes.</p>
+              <img class="script-image" src="section for scope box.png" alt="Dynamo graph for creating section from scope box">
+              <div class="actions">
+                <a class="btn btn-primary" href="section for scope box.png" download>Download image</a>
+                <a class="detail-link" href="section_frm_scope.html">Detailed explanation on section from scope box &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Create floor plan from scope box.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the creation of Floor Plan views in Autodesk Revit by combining building Levels and Scope Boxes....</p>
+            </summary>
+            <div class="details-body">
+              <p>Instead of manually creating, cropping, and renaming views for different building wings or zones across multiple levels, this workflow extracts the necessary elements from the model, pairs them together, generates the views, and renames them uniformly.</p>
+              <img class="script-image" src="floor plan from scope box.png" alt="Dynamo graph for creating floor plan from scope box">
+              <div class="actions">
+                <a class="btn btn-primary" href="floor plan from scope box.png" download>Download image</a>
+                <a class="detail-link" href="plan_frm_scope.html">Detailed explanation on creating floor plan from scope box &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Renumber revit element using spline.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the process of renumbering Revit elements sequentially based on their spatial progression along a drawn reference path or spline....</p>
+            </summary>
+            <div class="details-body">
+              <p>Instead of manually updating tags or identifiers, the script maps elements to a curve, sorts them by their order along that path, generates a matching number sequence, and writes the new values back into a specified parameter (such as "Mark").</p>
+              <img class="script-image" src="renumber element using spline.png" alt="Dynamo graph for renumbering Revit elements using a spline">
+              <div class="actions">
+                <a class="btn btn-primary" href="renumber element using spline.png" download>Download image</a>
+                <a class="detail-link" href="renumber_using_spline.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Place lintel above opening.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">Dynamo script is designed to automate the placement of structural lintels (beams) above openings (such as doors, windows, or general openings) in Autodesk Revit....</p>
+            </summary>
+            <div class="details-body">
+              <p>Instead of manually modeling lintels over every door and window, this script extracts the location and geometry of the openings, determines the correct height, and automatically generates the structural framing elements.</p>
+              <img class="script-image" src="lintels above openings.png" alt="Dynamo graph for placing lintels above openings">
+              <div class="actions">
+                <a class="btn btn-primary" href="lintels above openings.png" download>Download image</a>
+                <a class="detail-link" href="Place_lintel_above_opening.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Split column at levels.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">This Dynamo script automates the process of splitting existing Structural Columns...</p>
+            </summary>
+            <div class="details-body">
+              <p>This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels. It identifies existing columns, generates intersection planes based on building story elevations, intersects the columns with these planes, deletes the original columns, and recreates new segmented structural columns using curves and specified column types.</p>
+              <img class="script-image" src="split column.png" alt="Dynamo graph for splitting columns at levels">
+              <div class="actions">
+                <a class="btn btn-primary" href="split column.png" download>Download image</a>
+                <a class="detail-link" href="split_column.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Assign filter to a view.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">The provided Dynamo script is designed to automate the process of creating, configuring, and assigning a view filter with graphic overrides in Autodesk Revit....</p>
+            </summary>
+            <div class="details-body">
+              <p>Instead of manually setting up filters and visibility rules in view properties, this script extracts element data, builds filter rules based on parameters (such as area values), sets up custom graphic styling (like colors), and applies them directly to a target Revit view.</p>
+              <img class="script-image" src="assign filter to a view.png" alt="Dynamo graph for assigning a filter to a view">
+              <div class="actions">
+                <a class="btn btn-primary" href="assign filter to a view.png" download>Download image</a>
+                <a class="detail-link" href="assign_filter_to_view.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+
+        <li>
+          <details>
+            <summary>
+              <div class="summary-top">
+                <div class="script-title-group">
+                  <h3>Extract elements and organise by room in a csv.</h3>
+                </div>
+                <svg class="chevron" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true">
+                  <polyline points="6 9 12 15 18 9"></polyline>
+                </svg>
+              </div>
+              <p class="summary-preview">Extract elements and organise the data by room in a csv...</p>
+            </summary>
+            <div class="details-body">
+              <p>This Dynamo script automates the process of extracting Electrical Equipment elements from a Revit model, identifying the specific rooms they are located in, retrieving their "Panel Name" parameters, organizing the data by room, and finally exporting the compiled information into a CSV file on the desktop.</p>
+              <img class="script-image" src="element room location in csv.png" alt="Dynamo graph for extracting elements and organizing by room in a CSV">
+              <div class="actions">
+                <a class="btn btn-primary" href="element room location in csv.png" download>Download image</a>
+                <a class="detail-link" href="element room location in csv.html">Detailed explanation of this script &rarr;</a>
+              </div>
+            </div>
+          </details>
+        </li>
+      </ol>
+    </main>
+  </div>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="families.html">Revit Families</a>
+      <a class="footer-pill" href="Cetrificates.html">Certificates</a>
+      <a class="footer-pill" href="3dmodel.html">3D Models</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
+</body>
+</html>

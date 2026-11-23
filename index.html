@@ -1,32 +1,73 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<title>Home radhakrishnasha</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Home — radhakrishnasha</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<nav>
-<h3>
-<a href = "Dynamo.html">Dynamo</a> | 
-<a href = "https://drive.google.com/file/d/1ctB1QzDiyrh7x0ANqRk7RlBKtJUTji4v/view?usp=drive_link">Portfolio</a> | 
-<a href = "families.html">Revit Families</a> | 
-<a href = "Cetrificates.html">Cetrificates</a> | 
-<a href = "3dmodel.html">3D Models</a>
-</h3>
-</nav>
-<div>
-<h2>About me</h2>
-<p>BIM Architect with 5 years of experience supporting U.S. and domestic projects, specializing in Revit modeling, BIM coordination, and automation using Dynamo. Skilled in developing custom Dynamo scripts for production efficiency, including script for detecting and deleting duplicate tags, validating tag types, and performing clash checks between selected element categories directly inside Revit. Experienced in LOD 300–500 modeling, created 500+ parametric families, generating Navisworks clash reports, and maintaining BIM standards through automated QA/QC workflows. Passionate about leveraging computational design to reduce manual tasks, enhance model accuracy, and improve multidisciplinary collaboration across teams
-</p>
-</div>
-<h2>Curiosity drives better <em>solutions.</em></h2>
-<p>I enjoy finding practical ways to simplify repetitive tasks and make project workflows more efficient.</p>
-<footer>
-<h2>Help topics</h2>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="dynamo.html">Dynamo</a>
+        <a href="https://drive.google.com/file/d/1ctB1QzDiyrh7x0ANqRk7RlBKtJUTji4v/view?usp=drive_link" target="_blank" rel="noopener noreferrer" class="nav-cta">Portfolio</a>
+        <a href="families.html">Revit Families</a>
+        <a href="Cetrificates.html">Certificates</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
 
-<br><hr>
-<p align="center">
-<a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</p>
-</footer>
+  <main class="container">
+    <section class="hero-card">
+      <span class="eyebrow">BIM Architect &bull; Computational Design</span>
+      <h2>About me</h2>
+      <p class="about-text">
+        BIM Architect with 5 years of experience supporting U.S. and domestic projects, specializing in Revit modeling, BIM coordination, and automation using Dynamo. Skilled in developing custom Dynamo scripts for production efficiency, including script for detecting and deleting duplicate tags, validating tag types, and performing clash checks between selected element categories directly inside Revit. Experienced in LOD 300–500 modeling, created 500+ parametric families, generating Navisworks clash reports, and maintaining BIM standards through automated QA/QC workflows. Passionate about leveraging computational design to reduce manual tasks, enhance model accuracy, and improve multidisciplinary collaboration across teams.
+      </p>
+    </section>
+
+    <section class="highlights" aria-label="Career Highlights">
+      <div class="stat-card">
+        <div class="stat-value">5+ Years</div>
+        <div class="stat-label">BIM Architecture on U.S. &amp; domestic projects</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">500+</div>
+        <div class="stat-label">Parametric Revit families created</div>
+      </div>
+      <div class="stat-card">
+        <div class="stat-value">LOD 300–500</div>
+        <div class="stat-label">Modeling, coordination &amp; Dynamo QA/QC</div>
+      </div>
+    </section>
+
+    <section class="philosophy-card">
+      <h2>Curiosity drives better <em>solutions.</em></h2>
+      <p>I enjoy finding practical ways to simplify repetitive tasks and make project workflows more efficient.</p>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <h3>Help topics</h3>
+    <div class="footer-links">
+      <a class="footer-pill" href="dynamo.html">Dynamo Automation</a>
+      <a class="footer-pill" href="families.html">Revit Families</a>
+      <a class="footer-pill" href="Cetrificates.html">Certificates</a>
+      <a class="footer-pill" href="3dmodel.html">3D Models</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">Email</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+    </div>
+  </footer>
 </body>
 </html>

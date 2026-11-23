@@ -1,36 +1,89 @@
-<html lang ="en">
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta charset="utf-8"/>
-<meta name ="description" 
-	content="This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels."/>
-<title>Dynamo/ Split column at levels</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels." />
+  <title>Dynamo/ Split column at levels</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<h1>Split column at levels</h1>
-<p>This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels. It identifies existing columns, generates intersection planes based on building story elevations, intersects the columns with these planes, deletes the original columns, and recreates new segmented structural columns using curves and specified column types.</p>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="dynamo.html">Dynamo</a>
+        <a href="families.html">Revit Families</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
 
-<img src = "split column.png" width ="80%"><br>
-<a href ="split column.png" download><button>Download image</button> </a>
+  <main class="container container--narrow">
+    <header class="page-header">
+      <span class="badge">Dynamo Script Breakdown</span>
+      <h1>Split column at levels</h1>
+    </header>
 
-<!--<a href ="section form scope box.dyn" target="_blank" download><button>Download Dynamo script</button> </a>-->
+    <section class="content-card">
+      <p class="body-copy">
+        This Dynamo script automates the process of splitting existing Structural Columns in a Revit model at multi-story building levels. It identifies existing columns, generates intersection planes based on building story elevations, intersects the columns with these planes, deletes the original columns, and recreates new segmented structural columns using curves and specified column types.
+      </p>
 
-<p>
-1. Selection & Location of Existing Columns (Top Branch) Categories & All Elements of Category: Selects the "Structural Columns" category and retrieves all column instances currently in the Revit model.<br>
-Elements.Delete & Element.GetActualLocation: Retrieves the actual spatial geometry/location of the structural columns and flags the original elements for deletion once the new split columns are generated.<br>
-2. Level Filtering & Elevation Extraction (Bottom-Left Branch) Categories & All Elements of Category (Levels): Pulls all "Levels" from the Revit model.
-Element.GetParameterValueByName & List.FilterByBoolMask: Evaluates the **"Building Story"** parameter to filter and keep only the relevant building story levels.<br>
-Element.GetParameterValueByName (Elevation) & Math.Round: Extracts the elevation values of the filtered levels and rounds them to get precise vertical heights.<br>
-3. Plane Generation & Geometry Intersection (Middle Section) Plane.XY & Plane.Offset: Creates a base horizontal reference plane and offsets it vertically using the rounded level elevation values.<br>
-Geometry.Intersect & List.OfRepeatedItem: Intersects the column geometries with the offset building story planes to find the exact splitting points or curves along the height of each column.<br>
-4. Data Processing via Python (Right-Middle Section) List.NormalizeDepth: Adjusts and organizes list structures to ensure data consistency after the intersection operation.<br>
-Python Script: Processes the intersection outputs and curves to structure them properly for column recreation.<br>
-5. Recreating Split Columns (Far Right) List.FirstItem & Structural Column Types: Gathers the required reference levels and selects a specific structural column type (e.g., "300 x 450mm") from the model.<br>
-StructuralFraming.ColumnByCurve: Takes the processed curves, levels, and column types to generate and place the new, split structural columns back into the Revit model.
-</p><br>
+      <img class="showcase-image" src="split column.png" alt="Dynamo graph for splitting columns at levels">
 
-<footer><hr>
-<p align="center"><a href = "Dynamo.html"><button>Dynamo</button></a><br><a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</footer>
+      <div class="actions">
+        <a class="btn btn-primary" href="split column.png" download>Download image</a>
+        <!--<a class="btn" href="section form scope box.dyn" target="_blank" download>Download Dynamo script</a>-->
+        <a class="btn" href="Dynamo.html">Dynamo</a>
+      </div>
+
+      <div class="step-list">
+        <div class="step-item">
+          <strong>1. Selection &amp; Location of Existing Columns (Top Branch)</strong> Categories &amp; All Elements of Category: Selects the "Structural Columns" category and retrieves all column instances currently in the Revit model.<br>
+          Elements.Delete &amp; Element.GetActualLocation: Retrieves the actual spatial geometry/location of the structural columns and flags the original elements for deletion once the new split columns are generated.
+        </div>
+
+        <div class="step-item">
+          <strong>2. Level Filtering &amp; Elevation Extraction (Bottom-Left Branch)</strong> Categories &amp; All Elements of Category (Levels): Pulls all "Levels" from the Revit model.
+          Element.GetParameterValueByName &amp; List.FilterByBoolMask: Evaluates the <strong>"Building Story"</strong> parameter to filter and keep only the relevant building story levels.<br>
+          Element.GetParameterValueByName (Elevation) &amp; Math.Round: Extracts the elevation values of the filtered levels and rounds them to get precise vertical heights.
+        </div>
+
+        <div class="step-item">
+          <strong>3. Plane Generation &amp; Geometry Intersection (Middle Section)</strong> Plane.XY &amp; Plane.Offset: Creates a base horizontal reference plane and offsets it vertically using the rounded level elevation values.<br>
+          Geometry.Intersect &amp; List.OfRepeatedItem: Intersects the column geometries with the offset building story planes to find the exact splitting points or curves along the height of each column.
+        </div>
+
+        <div class="step-item">
+          <strong>4. Data Processing via Python (Right-Middle Section)</strong> List.NormalizeDepth: Adjusts and organizes list structures to ensure data consistency after the intersection operation.<br>
+          Python Script: Processes the intersection outputs and curves to structure them properly for column recreation.
+        </div>
+
+        <div class="step-item">
+          <strong>5. Recreating Split Columns (Far Right)</strong> List.FirstItem &amp; Structural Column Types: Gathers the required reference levels and selects a specific structural column type (e.g., "300 x 450mm") from the model.<br>
+          StructuralFraming.ColumnByCurve: Takes the processed curves, levels, and column types to generate and place the new, split structural columns back into the Revit model.
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="Dynamo.html">Dynamo</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>

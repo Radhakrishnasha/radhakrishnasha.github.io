@@ -1,52 +1,108 @@
-<html>
+<!DOCTYPE html>
+<html lang="en">
 <head>
-<meta name="referrer" content="strict-origin-when-cross-origin" />
-<title>Revit families</title>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="referrer" content="strict-origin-when-cross-origin" />
+  <title>Revit families</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="ap.js" defer></script>
 </head>
 <body>
-<nav><a href="#vid">works</a> | <a href="#guide">Guide</a> | <a href="#para">Parameters</a> | <a href="#ref">Reference</a>
-</nav>
-<main>
-<h1>Revit families</H1>
-<div id="vid"><h2>Parametric kitchenette family</h2>
-<iframe width="80%"  src="https://www.youtube-nocookie.com/embed/I__QdEWp8UI?si=rRbATbUBW2jE6rNh"  referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-<br><br>
-<h2>Parametric cusion family</h2><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7292600274727186434?collapsed=1" height="520" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-<h2>Parametric cabinet family</h2><iframe src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7292599243012222977?collapsed=1" height="520" width="504" frameborder="0" allowfullscreen="" title="Embedded post"></iframe>
-</div>
-<div id="guide">
-<h2>Good pratices for revit family creation</h2>
-<ul>
-<li>Use reference planes to constrain the geomentry</li>
-<li>Model the only the parts which will be visible in the 3d view</li>
-<li>Use standarised naming conventions</li>
-<li>Limit the use of nested families, arrays, voids and maintain parameters that will be actively used</li>
-<li>Plan the process</li>
-<li>Prefer family instance instead of modelling the same geometry again or using groups</li>
-<li>check the family in the project environment</li>
-</ul>
-</div>
-<div id="para">
-<h2>Family Parameter types</h2>
-<ul><li>We have two types of parameters they are generic family parameters and Shared Parameters
-Both of these can be further classified as Type and Instance parameter.</li>
-<li>We use Shared parameter to parameters that are need to be scheduled, like Cost, Equipment Code, etc.
-For other cases use generic family parameters.</li>
-<li>Whenever we create a new family it comes with certain parameters that we cannot delete and are called built-in parameters.</li>
-<li>Built-in parameters are also a kind of generic family parameters.</li>
-<li>We can change the category of the family even in the middle of family creation ie from generic to furniture category.</li>
-<li>Use the right type of family template while creating the family ie, wall or ceiling hosted or level based family we can’t change the family type ex, from level based family to wall hosted family is not possible.</li></ul>
-</div>
-<div id="ref">
-<h2>External reference</h2>
-<a href="https://www.autodesk.com/autodesk-university/class/Revit-Family-Creation-Step-Step-Introduction-Just-Beginners-2019#handout">Guide to family creation by Autodesk.</a><br>
-<a href="https://www.autodesk.com/autodesk-university/class/Revit-Families-Step-Step-Advanced-Concepts-2013#handout">Advance family concept by Autodesk.</a><br>
-</div>
-</main>
-<footer><hr>
-<p align="center"><a href = "index.html"><button>Home</button></a><br>
-<a href="mailto:radhakrishnasha@gmail.com">mail</a>|
-<a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank">Linkedin</a>
-</footer>
+  <header class="site-header">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Radhakrishnasha</a>
+      <nav class="main-nav" aria-label="Primary Navigation">
+        <a href="index.html">Home</a>
+        <a href="dynamo.html">Dynamo</a>
+        <a href="Cetrificates.html">Certificates</a>
+        <a href="3dmodel.html">3D Models</a>
+        <span class="theme-control">
+          <label class="theme-switch" for="checkbox">Dark Theme</label>
+          <input type="checkbox" id="checkbox">
+        </span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container container--narrow">
+    <header class="page-header">
+      <span class="badge">Autodesk Revit &bull; Family Library</span>
+      <h1>Revit families</h1>
+      <p class="subtitle">Parametric content, modeling best practices, and parameter guidelines</p>
+    </header>
+
+    <div class="sub-nav" aria-label="Section Navigation">
+      <a href="#vid">works</a>
+      <a href="#guide">Guide</a>
+      <a href="#para">Parameters</a>
+      <a href="#ref">Reference</a>
+    </div>
+
+    <section id="vid" class="content-card">
+      <h2>Parametric kitchenette family</h2>
+      <div class="media-block">
+        <iframe class="video-frame" src="https://www.youtube-nocookie.com/embed/I__QdEWp8UI?si=rRbATbUBW2jE6rNh" referrerpolicy="strict-origin-when-cross-origin" title="YouTube video player" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" allowfullscreen></iframe>
+      </div>
+
+      <div class="embed-grid">
+        <div class="embed-card">
+          <h3>Parametric cusion family</h3>
+          <iframe class="social-embed" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7292600274727186434?collapsed=1" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+        <div class="embed-card">
+          <h3>Parametric cabinet family</h3>
+          <iframe class="social-embed" src="https://www.linkedin.com/embed/feed/update/urn:li:ugcPost:7292599243012222977?collapsed=1" allowfullscreen="" title="Embedded post"></iframe>
+        </div>
+      </div>
+    </section>
+
+    <section id="guide" class="content-card">
+      <h2>Good pratices for revit family creation</h2>
+      <ul class="styled-list">
+        <li>Use reference planes to constrain the geomentry</li>
+        <li>Model the only the parts which will be visible in the 3d view</li>
+        <li>Use standarised naming conventions</li>
+        <li>Limit the use of nested families, arrays, voids and maintain parameters that will be actively used</li>
+        <li>Plan the process</li>
+        <li>Prefer family instance instead of modelling the same geometry again or using groups</li>
+        <li>check the family in the project environment</li>
+      </ul>
+    </section>
+
+    <section id="para" class="content-card">
+      <h2>Family Parameter types</h2>
+      <ul class="styled-list">
+        <li>We have two types of parameters they are generic family parameters and Shared Parameters
+        Both of these can be further classified as Type and Instance parameter.</li>
+        <li>We use Shared parameter to parameters that are need to be scheduled, like Cost, Equipment Code, etc.
+        For other cases use generic family parameters.</li>
+        <li>Whenever we create a new family it comes with certain parameters that we cannot delete and are called built-in parameters.</li>
+        <li>Built-in parameters are also a kind of generic family parameters.</li>
+        <li>We can change the category of the family even in the middle of family creation ie from generic to furniture category.</li>
+        <li>Use the right type of family template while creating the family ie, wall or ceiling hosted or level based family we can’t change the family type ex, from level based family to wall hosted family is not possible.</li>
+      </ul>
+    </section>
+
+    <section id="ref" class="content-card">
+      <h2>External reference</h2>
+      <div class="ref-links">
+        <a href="https://www.autodesk.com/autodesk-university/class/Revit-Family-Creation-Step-Step-Introduction-Just-Beginners-2019#handout" target="_blank" rel="noopener noreferrer">Guide to family creation by Autodesk.</a>
+        <a href="https://www.autodesk.com/autodesk-university/class/Revit-Families-Step-Step-Advanced-Concepts-2013#handout" target="_blank" rel="noopener noreferrer">Advance family concept by Autodesk.</a>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-links">
+      <a class="footer-pill" href="index.html">Home</a>
+      <a class="footer-pill" href="dynamo.html">Dynamo</a>
+    </div>
+    <div class="contact-row">
+      <a href="mailto:radhakrishnasha@gmail.com">mail</a>
+      <span>&bull;</span>
+      <a href="http://www.linkedin.com/in/radha-krishna-sha-9a66b524b" target="_blank" rel="noopener noreferrer">Linkedin</a>
+    </div>
+  </footer>
 </body>
 </html>
